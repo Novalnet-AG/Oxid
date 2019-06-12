@@ -85,16 +85,18 @@ class OrderOverview extends OrderOverview_parent
         $dAmount = isset($aResult['PAID_AMOUNT']) ? $aResult['PAID_AMOUNT'] : '';
         if (!empty($aTransDetails['REFUND_AMOUNT']))
            $dAmount =  $aTransDetails['REFUND_AMOUNT'] + $aResult['PAID_AMOUNT'];
-       
-        $this->_aViewData['blZeroBook']       = !empty($aTransDetails['ZERO_TRANSACTION']) && $aTransDetails['AMOUNT'] === '0' && in_array($aTransDetails['PAYMENT_ID'], ['6', '34', '37' ]) && $aTransDetails['GATEWAY_STATUS'] != '103';
-        $this->_aViewData['blOnHold']         = $aTransDetails['AMOUNT'] !== '0' && in_array($aTransDetails['GATEWAY_STATUS'], [ '85', '91', '98', '99' ]);
-        $this->_aViewData['blAmountUpdate']   = $aTransDetails['TOTAL_AMOUNT'] !== '0' && $aTransDetails['PAYMENT_ID'] == '37' && $aTransDetails['GATEWAY_STATUS']      == '99';
-        $this->_aViewData['blDuedateUpdate']  = $aTransDetails['TOTAL_AMOUNT'] !== '0' && (in_array($aTransDetails['PAYMENT_ID'] , ['59','27'])) && $aTransDetails['GATEWAY_STATUS'] == '100' && ($aTransDetails['TOTAL_AMOUNT'] > $dAmount);
+
+       if ($oOrder->oxorder__oxtotalordersum->value !== '0') {
+         $this->_aViewData['blZeroBook']       = !empty($aTransDetails['ZERO_TRANSACTION']) && $aTransDetails['AMOUNT'] === '0' && in_array($aTransDetails['PAYMENT_ID'], ['6', '34', '37' ]) && $aTransDetails['GATEWAY_STATUS'] != '103';
+         $this->_aViewData['blOnHold']         = $aTransDetails['AMOUNT'] !== '0' && in_array($aTransDetails['GATEWAY_STATUS'], [ '85', '91', '98', '99' ]);
+         $this->_aViewData['blAmountUpdate']   = $aTransDetails['TOTAL_AMOUNT'] !== '0' && $aTransDetails['PAYMENT_ID'] == '37' && $aTransDetails['GATEWAY_STATUS']      == '99';
+         $this->_aViewData['blDuedateUpdate']  = $aTransDetails['TOTAL_AMOUNT'] !== '0' && (in_array($aTransDetails['PAYMENT_ID'] , ['59','27'])) && $aTransDetails['GATEWAY_STATUS'] == '100' && ($aTransDetails['TOTAL_AMOUNT'] > $dAmount);
         
-        $this->_aViewData['sKey']             = $aTransDetails['PAYMENT_ID'];
-        $this->_aViewData['sNovalnetDueDate'] = !empty($this->_aViewData['blDuedateUpdate']) ? $aAdditionalData['due_date'] : '';
-        $this->_aViewData['blAmountRefund']   = $aTransDetails['TOTAL_AMOUNT'] !== '0' && $aTransDetails['GATEWAY_STATUS'] == '100';
-        $this->_aViewData['blRefundRef']      = !empty($this->_aViewData['blAmountRefund']) && $sOrderDate < strtotime(date('Y-m-d'));
+         $this->_aViewData['sKey']             = $aTransDetails['PAYMENT_ID'];
+         $this->_aViewData['sNovalnetDueDate'] = !empty($this->_aViewData['blDuedateUpdate']) ? $aAdditionalData['due_date'] : '';
+         $this->_aViewData['blAmountRefund']   = $aTransDetails['TOTAL_AMOUNT'] !== '0' && $aTransDetails['GATEWAY_STATUS'] == '100';
+         $this->_aViewData['blRefundRef']      = !empty($this->_aViewData['blAmountRefund']) && $sOrderDate < strtotime(date('Y-m-d'));
+       }
      
     }
 
