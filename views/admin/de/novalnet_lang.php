@@ -38,7 +38,7 @@ $aLang = [
 
     'NOVALNET_PRODUCT_ACTIVATION_KEY_TITLE'       => 'Aktivierungsschlüssel des Produkts',            
     'NOVALNET_TARIFF_ID_TITLE'                    => 'Tarif-ID',    
-    'NOVALNET_MANUAL_CHECK_LIMIT_TITLE'           => 'Limit für onhold-Buchungen setzen (in der kleinsten Währungseinheit, z.B. 100 Cent = entsprechen 1.00 EUR)',
+    'NOVALNET_MANUAL_CHECK_LIMIT_TITLE'           => 'Mindesttransaktionsbetrag für die Autorisierung (in der kleinsten Währungseinheit, z.B. 100 Cent = entsprechen 1.00 EUR)',
     'NOVALNET_PROXY_SERVER_TITLE'                 => 'Proxy-Server',
     'NOVALNET_GATEWAY_TIMEOUT_TITLE'              => 'Zeitlimit der Schnittstelle (in Sekunden)',
     'NOVALNET_REFERRER_ID_TITLE'                  => 'Partner-ID',
