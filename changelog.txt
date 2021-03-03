@@ -1,0 +1,27 @@
+*** Changelog ***
+
+= 11.4.2 - 2020.09.21 =
+* Fix      - Chrome SameSite cookies
+
+= 11.4.1 -  2020.04.18 =
+* Fix      - Compatibility for Oxid eShop 6.2.0
+
+= 11.4.0 - 2019.08.02 =
+* Enhanced - Creation of order as default before executing payment call in the shop system (for all redirect payment methods: online  bank transfers, Credit Card-3D secure and wallet systems), to avoid the missing orders on completion of payment on non-return of end user due to enduser closed the browser or time out at payment, etc.! 
+
+= 11.3.0 - 2019.02.28 =
+* New      - Notify end customer for storing Card / Account information
+* New      - Custom checkout overlay for Barzahlen
+* Enhanced - Implemented new encryption method for redirect payments
+* Enhanced - Auto configuration call perform via cURL method
+* Enhanced - Guaranteed payment minimum amount reduced to 9.99 EUR
+* Enhanced - Adjusted the payment module for IPV6 condition
+* Removed  - Autofill and Payment refill for payment data
+* Removed  - BIC field for Direct Debit SEPA
+* Removed  - Payment reference configuration for Invoice / prepayment
+* Removed  - Dynamic subscription management
+* Removed  - Transaction reference in payments
+
+
+= 11.2.0 - 2018.01.05 =
+*        - New release
