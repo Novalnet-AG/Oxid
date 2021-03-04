@@ -1,5 +1,19 @@
 *** Changelog ***
 
+= 11.4.3 - 2021.03.03 =
+* Fix      - Compatibility for Oxid eShop 6.2.0
+* New 	   - Payment duration for Prepayment
+* New      - Implemented enforce 3D secure payment for countries outside EU
+* Fix 	   - Payment module adjusted for the Shop theme
+* Fix      - Adjusted payment module to restrict double booking for redirect payment
+* Enhanced - Barzahlen payment name and logo
+* Enhanced - Callback has been optimized as per the new testcase
+* Removed  - PIN by callback and PIN by SMS for Direct Debit SEPA and Invoice payment methods
+* Removed  - href links for the payment logo
+* Removed  - Proxy server configuration
+* Removed  - Gateway timeout configuration
+* Removed  - Referrer Id configuration
+
 = 11.4.2 - 2020.09.21 =
 * Fix      - Chrome SameSite cookies
 
