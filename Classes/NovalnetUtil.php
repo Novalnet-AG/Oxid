@@ -331,7 +331,8 @@ class NovalnetUtil {
                 if (isset($aDynValue['novalnet_cc_do_redirect']) && $aDynValue['novalnet_cc_do_redirect'] == '1') {
                     // checks to set credit card payment as redirect
                     array_push($this->aRedirectPayments, 'novalnetcreditcard');
-                } elseif (($this->getNovalnetConfigValue('iShopTypenovalnetcreditcard') == '1' && (isset($aDynValue['novalnet_cc_save_card']) &&  $aDynValue['novalnet_cc_save_card'] == '1')) || ($this->getNovalnetConfigValue('iShopTypenovalnetcreditcard') == '2')) {
+                } 
+                if (($this->getNovalnetConfigValue('iShopTypenovalnetcreditcard') == '1' && (isset($aDynValue['novalnet_cc_save_card']) &&  $aDynValue['novalnet_cc_save_card'] == '1')) || ($this->getNovalnetConfigValue('iShopTypenovalnetcreditcard') == '2')) {
                     $aRequest['create_payment_ref'] = 1;
                 }
             }
