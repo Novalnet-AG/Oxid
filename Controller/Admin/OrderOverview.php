@@ -159,7 +159,7 @@ class OrderOverview extends OrderOverview_parent
                     $aData['masked_details'] = $aTransDetails['MASKED_DETAILS'];
                 $this->_updateNovalnetComments($aData);
             } else {
-                $sError = $oNovalnetUtil->setNovalnetPaygateError($aResponse);
+                $sError = $oNovalnetUtil->setPaygateError($aResponse);
                 if ($aData['sRequestType'] == 'status_change')
                     $this->_aViewData['sOnHoldFailure'] = $sError;
                 elseif ($aData['sRequestType'] == 'amount_update')
