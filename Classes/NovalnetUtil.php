@@ -219,8 +219,26 @@ class NovalnetUtil {
             $this->_encodeNovalnetParams($aRequest);
         }
         $aRequest = array_map('trim', $aRequest);
+		
+		// set custom fields?
+		$aRequest = $this->setCustomNovalnetParams($oBasket, $oUser, $aRequest);
+		
         return $aRequest;
     }
+	
+	 /**
+	 * Override this function if you want to set custom Novalnet parameters for payment call (like 'subvendors'-field)
+	 *
+	 * @param array  $oBasket
+     * @param string $oUser
+	 * @param array $aRequest
+     *
+     * @return array
+     */
+	protected function setCustomNovalnetParams($oBasket, $oUser, $aRequest)
+	{
+		return $aRequest;
+	}
 
     /**
      * Gets Novalnet configuration value
