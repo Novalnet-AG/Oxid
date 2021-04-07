@@ -1,6 +1,6 @@
 {
-    "name":        "novalnet/module-payment",
-    "description": "N/A",
+    "name":        "novalnet/oxid6-payment-module",
+    "description": "Novalnet payment module for OXID eShop",
     "type":        "oxideshop-module",
     "keywords":    [
         "oxid",
